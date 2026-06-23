@@ -30,9 +30,9 @@ public class Test {
         while (resp !=0) {
             
         
-        System.out.println("1 - Cadastrar Library_system.Livro");
+        System.out.println("1 - Cadastrar Livro");
         System.out.println("2 - Listar Livros");
-        System.out.println("3 - Emprestar Library_system.Livro");
+        System.out.println("3 - Emprestar Livro");
         System.out.println("4 - Cadastrar Usuário");
         System.out.println("5 - Listar Usuários");
         System.out.println("0 - Sair");
@@ -70,7 +70,7 @@ public class Test {
                     System.out.println("Erro");
                 }
 
-                System.out.println("Library_system.Livro emprestado com sucesso!");
+                System.out.println("Livro emprestado com sucesso!");
                 break;
             case 4:
                 System.out.println("O nome do novo usuário");
@@ -92,11 +92,8 @@ public class Test {
                 break;
             default:
                 break;
-        }}
-
-
-
-
+        }
+        }
     }
 
 }
