@@ -35,6 +35,7 @@ public class Test {
         System.out.println("3 - Emprestar Livro");
         System.out.println("4 - Cadastrar Usuário");
         System.out.println("5 - Listar Usuários");
+        System.out.println("6 - Criar relatório");
         System.out.println("0 - Sair");
         resp = input.nextInt();
         input.nextLine();
