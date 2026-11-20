@@ -5,22 +5,31 @@ public class Livro {
     private String autor;
     private boolean disponivel;
 
-    public Livro(boolean disponivel){
+    public Livro(boolean disponivel) {
         this.disponivel = disponivel;
     }
-     public Livro(String name ,String autor,boolean disponivel){
-        this.titulo = name;
+
+    public Livro(String titulo, String autor, boolean disponivel) {
+        this.titulo = titulo;
         this.autor = autor;
         this.disponivel = disponivel;
     }
-    public String disponibilidade(){
+
+    public String disponibilidade() {
         if (disponivel) {
             return "Disponível";
-        }else{
-            return "indisponível";
+        } else {
+            return "Indisponível";
         }
     }
-    
+
+    public boolean isDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
@@ -29,17 +38,12 @@ public class Livro {
     public void setAutor(String autor) {
         this.autor = autor;
     }
+
     public String getAutor() {
         return autor;
     }
+
     public String getTitulo() {
         return titulo;
-    }
-    public void trocarDisponilidade(int i){
-        if (i == 1) {
-            this.disponivel = true;
-        }else{
-            this.disponivel = false;
-        }
     }
 }

@@ -8,37 +8,46 @@ import java.util.ArrayList;
 public class BaseUsuarios {
     private ArrayList<Usuario> users;
 
-    public BaseUsuarios(){
+    public BaseUsuarios() {
         users = new ArrayList<>();
     }
-    public BaseUsuarios(ArrayList<Usuario> users){
+
+    public BaseUsuarios(ArrayList<Usuario> users) {
         this.users = users;
     }
 
-    public void setUsers(String nom,int idade, int endereco) {
-        Usuario user = new Usuario(nom, idade, endereco);
+    public void setUsers(String nome, int idade, int matricula) {
+        Usuario user = new Usuario(nome, idade, matricula);
         users.add(user);
     }
+
     public void setUsers(Usuario user) {
-
         users.add(user);
     }
 
-    
-    public Usuario encontrarPessoa(int adress){
-        for (int i = 0; i < users.size(); i++) {
-            if(adress == users.get(i).getMatricula()){
-                return users.get(i);
+    /**
+     * Busca um usuário pela matrícula.
+     * Retorna null se nenhum usuário com essa matrícula for encontrado.
+     */
+    public Usuario encontrarPessoa(int matricula) {
+        for (Usuario user : users) {
+            if (user.getMatricula() == matricula) {
+                return user;
             }
         }
-        return users.get(adress);
+        return null; // matrícula não encontrada
     }
-    public void listarUsuarios(){
-        for( Usuario user: users){
+
+    public void listarUsuarios() {
+        if (users.isEmpty()) {
+            System.out.println("Nenhum usuário cadastrado.");
+            return;
+        }
+        for (Usuario user : users) {
             user.exibirInfo();
         }
-
     }
+
     public void criarRelatorio() {
         Path caminho = Paths.get("Relatorio.txt");
 
@@ -65,12 +74,10 @@ public class BaseUsuarios {
 
             Files.write(caminho, relatorio.toString().getBytes());
 
-            System.out.println("Relatório criado com sucesso!");
+            System.out.println("Relatório criado com sucesso em: " + caminho.toAbsolutePath());
 
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Erro ao criar relatório: " + e.getMessage());
         }
     }
-
-
 }
